@@ -1,0 +1,15 @@
+* Overview
+
+=Dockerfile= for [[http://streamparse.readthedocs.org/en/stable/][streamparse]]. 
+
+** Quickstart
+
+#+BEGIN_SRC sh
+  git clone https://github.com/jezifm/streamparse-docker
+  cd streamparse-docker
+  docker build -t streamparse .
+  docker run -it --name streamparse streamparse bash
+  sparse quickstart wordcount
+  cd wordcount
+  sparse run
+#+END_SRC

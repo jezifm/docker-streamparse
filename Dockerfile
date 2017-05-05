@@ -1,26 +1,27 @@
 FROM ubuntu
-RUN apt-get update -y
 # install system-dependencies
-RUN apt-get install gcc -y
-RUN apt-get install python-dev -y
-RUN apt-get install python-pip -y
-RUN apt-get install libffi-dev -y
-RUN apt-get install libjpeg8-dev -y
-RUN apt-get install libssl-dev -y
-RUN apt-get install libxml2-dev -y
-RUN apt-get install libxslt1-dev -y
-RUN apt-get install python-dev -y
-RUN apt-get install zlib1g-dev -y
+RUN apt-get update && apt-get install -y \
+    curl \
+    gcc \
+    libffi-dev \
+    libjpeg8-dev \
+    libssl-dev \
+    libxml2-dev \
+    libxslt1-dev \
+    python-dev \
+    python-dev \
+    python-pip \
+    python-setuptools \
+    python-software-properties \
+    software-properties-common \
+    zlib1g-dev
 # install pip
-RUN apt-get install python-setuptools -y
 RUN easy_install pip
 # install java
-RUN apt-get install software-properties-common python-software-properties -y
-RUN add-apt-repository ppa:openjdk-r/ppa
-RUN apt-get update -y
-RUN apt-get install openjdk-7-jre -y
+RUN add-apt-repository ppa:openjdk-r/ppa && \
+    apt-get update && \
+    apt-get install -y openjdk-7-jre
 # install lein
-RUN apt-get install curl -y
 RUN mkdir /root/bin
 RUN curl -o /root/bin/lein https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
 RUN chmod 755 /root/bin/lein

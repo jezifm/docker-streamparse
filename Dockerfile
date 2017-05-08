@@ -9,14 +9,11 @@ RUN apt-get update && apt-get install -y \
     libxml2-dev \
     libxslt1-dev \
     python-dev \
-    python-dev \
     python-pip \
     python-setuptools \
     python-software-properties \
     software-properties-common \
     zlib1g-dev
-# install pip
-RUN easy_install pip
 # install java
 RUN add-apt-repository ppa:openjdk-r/ppa && \
     apt-get update && \
@@ -33,5 +30,7 @@ RUN cd /
 RUN curl -O http://mirror.rise.ph/apache/storm/apache-storm-1.0.2/apache-storm-1.0.2.tar.gz
 RUN tar -xvf apache-storm-1.0.2.tar.gz
 ENV PATH=$PATH:/apache-storm-1.0.2/bin
+# install pip
+RUN easy_install pip
 # install streamparse
 RUN pip install streamparse

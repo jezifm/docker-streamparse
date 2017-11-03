@@ -5,8 +5,8 @@
 ** Quickstart
 
 #+BEGIN_SRC sh
-  git clone https://github.com/jezifm/streamparse-docker
-  cd streamparse-docker
+  git clone https://github.com/jezifm/docker-streamparse
+  cd docker-streamparse
   docker build -t streamparse .
   docker run -it --name streamparse streamparse bash
   sparse quickstart wordcount
